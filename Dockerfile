@@ -18,14 +18,14 @@ RUN go mod download
 
 COPY . ./
 COPY --from=ui-builder /app/ui/out ./public
-RUN CGO_ENABLED=0 GOOS=linux go build -o /app/grantan ./cmd/server
+RUN CGO_ENABLED=0 GOOS=linux go build -o /tmp/grantan-server ./cmd/server
 
 FROM alpine:3.20
 
 WORKDIR /app
 RUN adduser -D -u 10001 grantan && mkdir -p /data/games /app/public && chown -R grantan:grantan /app /data
 
-COPY --from=go-builder /app/grantan /app/grantan
+COPY --from=go-builder /tmp/grantan-server /app/grantan-server
 COPY --from=go-builder /app/public /app/public
 
 ENV PORT=6789
@@ -35,4 +35,4 @@ ENV STATIC_DIR=/app/public
 USER grantan
 EXPOSE 6789
 
-CMD ["/app/grantan"]
+CMD ["/app/grantan-server"]
