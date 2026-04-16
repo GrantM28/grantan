@@ -37,7 +37,7 @@ type clientConn struct {
 func LoadConfig() Config {
 	port := strings.TrimSpace(os.Getenv("PORT"))
 	if port == "" {
-		port = "5678"
+		port = "6789"
 	}
 
 	staticDir := strings.TrimSpace(os.Getenv("STATIC_DIR"))

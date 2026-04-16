@@ -4,9 +4,9 @@ services:
     build:
       context: .
     ports:
-      - "5678:5678"
+      - "6789:6789"
     environment:
-      PORT: "5678"
+      PORT: "6789"
       DATA_DIR: /data
       STATIC_DIR: /app/public
     volumes:

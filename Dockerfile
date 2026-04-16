@@ -28,11 +28,11 @@ RUN adduser -D -u 10001 grantan && mkdir -p /data/games /app/public && chown -R 
 COPY --from=go-builder /app/grantan /app/grantan
 COPY --from=go-builder /app/public /app/public
 
-ENV PORT=5678
+ENV PORT=6789
 ENV DATA_DIR=/data
 ENV STATIC_DIR=/app/public
 
 USER grantan
-EXPOSE 5678
+EXPOSE 6789
 
 CMD ["/app/grantan"]
