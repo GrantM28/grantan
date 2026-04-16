@@ -1,0 +1,333 @@
+:root {
+    color-scheme: light;
+    --bg: #f3efe2;
+    --bg-panel: rgba(255, 250, 240, 0.9);
+    --ink: #24323d;
+    --muted: #6a736f;
+    --line: rgba(36, 50, 61, 0.12);
+    --primary: #16697a;
+    --primary-strong: #0f4e5c;
+    --secondary: #d97d54;
+    --secondary-strong: #b65d33;
+    --success: #2f7d46;
+    --error: #a63c3c;
+    --shadow: 0 24px 80px rgba(29, 40, 46, 0.12);
+    --radius: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(217, 125, 84, 0.22), transparent 32%),
+        radial-gradient(circle at top right, rgba(22, 105, 122, 0.2), transparent 28%),
+        linear-gradient(180deg, #f7f2e5 0%, #ece3d1 100%);
+    color: var(--ink);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+code {
+    padding: 0.1rem 0.35rem;
+    border-radius: 999px;
+    background: rgba(36, 50, 61, 0.08);
+}
+
+.shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 1.5rem 0 3rem;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 2rem;
+    border-radius: calc(var(--radius) + 8px);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(253, 244, 226, 0.82)),
+        linear-gradient(135deg, rgba(22, 105, 122, 0.12), rgba(217, 125, 84, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow);
+}
+
+.hero.compact {
+    margin-bottom: 1rem;
+}
+
+.hero h1,
+.panel h2,
+.trade-box h3 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.hero h1 {
+    font-size: clamp(2.75rem, 6vw, 4.6rem);
+    line-height: 0.95;
+}
+
+.eyebrow {
+    margin: 0 0 0.45rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.8rem;
+    color: var(--secondary-strong);
+}
+
+.subtitle,
+.muted {
+    color: var(--muted);
+}
+
+.subtitle {
+    max-width: 42rem;
+    margin-bottom: 0;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.two-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.game-layout {
+    grid-template-columns: 1.25fr 1fr;
+}
+
+.panel {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    background: var(--bg-panel);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+.stack {
+    display: grid;
+    gap: 1rem;
+}
+
+.field {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.field span {
+    font-size: 0.92rem;
+    color: var(--muted);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--ink);
+}
+
+button,
+.link-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 48px;
+    padding: 0.85rem 1.2rem;
+    border: 0;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 160ms ease, opacity 160ms ease, background 160ms ease;
+}
+
+button:hover,
+.link-button:hover {
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    transform: none;
+}
+
+.primary {
+    background: var(--primary);
+    color: white;
+}
+
+.primary:hover {
+    background: var(--primary-strong);
+}
+
+.secondary,
+.link-button {
+    background: rgba(217, 125, 84, 0.15);
+    color: var(--ink);
+}
+
+.secondary:hover,
+.link-button:hover {
+    background: rgba(217, 125, 84, 0.25);
+}
+
+.status-pill,
+.vp-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(22, 105, 122, 0.14);
+    color: var(--primary-strong);
+    font-size: 0.92rem;
+}
+
+.success,
+.error {
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    margin: 1rem 0 0;
+}
+
+.success {
+    background: rgba(47, 125, 70, 0.12);
+    color: var(--success);
+}
+
+.error {
+    background: rgba(166, 60, 60, 0.12);
+    color: var(--error);
+}
+
+.game-list,
+.player-list,
+.log-list {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.game-card,
+.player-card {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid var(--line);
+}
+
+.player-card.current {
+    border-color: rgba(22, 105, 122, 0.4);
+    box-shadow: inset 0 0 0 1px rgba(22, 105, 122, 0.18);
+}
+
+.game-card {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.game-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.player-top,
+.resource-row,
+.stats-grid,
+.trade-row,
+.actions-grid {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.player-top {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats-grid span,
+.resource-row span {
+    padding: 0.4rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(36, 50, 61, 0.07);
+    font-size: 0.92rem;
+}
+
+.actions-grid button {
+    flex: 1 1 12rem;
+}
+
+.trade-box {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+
+.trade-row select,
+.trade-row button {
+    flex: 1 1 11rem;
+}
+
+.footnote {
+    margin-top: 1rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .two-up,
+    .game-layout,
+    .game-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hero,
+    .section-head,
+    .player-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
